@@ -47,3 +47,13 @@
     - Card:
 
         - https://callstack.github.io/react-native-paper/card.html
+
+10. styled-components:
+
+    - https://styled-components.com/
+
+    - https://github.com/styled-components/styled-components
+
+    - https://styled-components.com/docs
+
+    - https://styled-components.com/docs/basics#installation
