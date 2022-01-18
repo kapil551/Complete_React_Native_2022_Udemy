@@ -63,3 +63,11 @@
         - https://github.com/styled-components/css-to-react-native
 
         - https://csstox.surge.sh/
+
+11. styled-component "Theme":
+
+    - It is used to make things consistent.
+
+    - https://styled-components.com/docs/advanced#theming
+
+    - https://reactjs.org/docs/context.html
