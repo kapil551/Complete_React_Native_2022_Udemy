@@ -16,6 +16,22 @@
 
     - https://reactnative.dev/docs/view
 
-3. React Native Flexbox:
+4. React Native Flexbox:
 
     - https://reactnative.dev/docs/flexbox#flex
+
+5. React Native StatusBar Component:
+
+    - https://reactnative.dev/docs/statusbar
+
+6. SafeAreaView Component:
+
+    - 
+
+7. View Component:
+
+    - 
+
+8. Text Component:
+
+    - 
