@@ -9,6 +9,9 @@ import {
 
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 
+import React from 'react';
+import { Searchbar } from 'react-native-paper';
+
 const isAndroid = Platform.OS === 'android';
 
 export default function App() {
@@ -17,13 +20,15 @@ export default function App() {
 
     <>
 
-      <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight }}>
+      <SafeAreaView style={ styles.container }>
 
-        <View style={{ padding: 16, backgroundColor: "green" }}>
-          <Text> search </Text>
+        <View style={ styles.search }>
+          <Searchbar
+            placeholder="Search"
+          />
         </View>
 
-        <View style={{ padding: 16, backgroundColor: "blue", flex: 1 }}>
+        <View style={ styles.list }>
             <Text> list </Text>
         </View>
 
@@ -38,5 +43,18 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+
+  container: {
+    flex: 1, 
+    marginTop: StatusBar.currentHeight,
+  },
+  search: {
+    padding: 16, 
+  }, 
+  list: {
+    padding: 16, 
+    backgroundColor: "blue", 
+    flex: 1 
+  }
   
 });

@@ -35,3 +35,11 @@
 8. Text Component:
 
     - 
+
+9. React Native Paper:
+
+    - https://callstack.github.io/react-native-paper/
+
+    - Searchbar:
+
+        - https://callstack.github.io/react-native-paper/searchbar.html
