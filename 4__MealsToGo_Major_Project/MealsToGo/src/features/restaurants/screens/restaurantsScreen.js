@@ -10,7 +10,7 @@ import {
 import React from 'react';
 import { Searchbar } from 'react-native-paper';
 
-import { RestaurantInfo } from '../components/restaurantInfo';
+import { RestaurantInfoCard } from '../components/restaurantInfo';
 
 export const RestaurantsScreen = () => (
 
@@ -23,7 +23,7 @@ export const RestaurantsScreen = () => (
     </View>
 
     <View style={ styles.list }>
-        <RestaurantInfo />
+        <RestaurantInfoCard />
     </View>
 
   </SafeAreaView>

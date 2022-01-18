@@ -1,10 +1,12 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, StyleSheet } from "react-native";
 
-                    // set restaurant to be an empty object
-export const RestaurantInfo = ({ restaurant = {} }) => {
+import { Card } from 'react-native-paper';
 
-    // define the restaurant object
+                    // set restaurant to be an empty object for now
+export const RestaurantInfoCard = ({ restaurant = {} }) => {
+
+    // get these from the restaurant object
     const {
         name = "Some Restaurant",
         icon,
@@ -18,7 +20,28 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
     } = restaurant;
   
     return (
-        <Text>{name}</Text>
+
+        // https://callstack.github.io/react-native-paper/card.html
+        <Card elevation={5} style={styles.card}>
+            <Card.Cover key={name} style={styles.cover} source={{ uri: photos[0] }} />
+            <Text style={styles.title}>{name}</Text>
+      </Card>
+
     );
 
 };
+
+const styles = StyleSheet.create({
+
+    card: { 
+        backgroundColor: "white" 
+    },
+    cover: { 
+        padding: 20, 
+        backgroundColor: "white" 
+    },
+    title: { 
+        padding: 16 
+    },
+
+});

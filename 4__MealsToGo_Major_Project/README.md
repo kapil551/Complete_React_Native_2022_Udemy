@@ -43,3 +43,7 @@
     - Searchbar:
 
         - https://callstack.github.io/react-native-paper/searchbar.html
+    
+    - Card:
+
+        - https://callstack.github.io/react-native-paper/card.html
