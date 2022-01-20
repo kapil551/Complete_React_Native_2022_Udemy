@@ -1,6 +1,8 @@
 import React from "react";
 import { Text, Image, View } from "react-native";
 
+import { Spacer } from "../../../components/spacer/spacerComponent";
+
 import { Card } from 'react-native-paper';
 import styled from "styled-components";
 
@@ -100,13 +102,13 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
                     </Text>
                   ) }
 
-                  <View style={{ paddingLeft: 16 }} />
+                  <Spacer variant="left.large"/>
 
                   { isOpenNow && 
                       <SvgXml xml={open} width={20} height={20} /> 
                   }
 
-                  <View style={{ paddingLeft: 16 }} />
+                  <Spacer variant="left.large"/>
                   
                   <Image 
                     style={{ width: 15, height: 15 }} 
