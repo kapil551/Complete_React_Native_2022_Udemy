@@ -4,6 +4,10 @@ import { Text, StyleSheet } from "react-native";
 import { Card } from 'react-native-paper';
 import styled from "styled-components";
 
+import { SvgXml } from "react-native-svg";
+
+import star from "../../../../assets/star";
+
 const RestaurantCard = styled(Card)`
   background-color: ${(props) => props.theme.colors.bg.primary};
 `;
@@ -11,6 +15,12 @@ const RestaurantCard = styled(Card)`
 const RestaurantCardCover = styled(Card.Cover)`
   padding: ${(props) => props.theme.space[3]};
   background-color: ${(props) => props.theme.colors.bg.primary};
+`;
+
+const Rating = styled.View`
+  flex-direction: row;
+  padding-top: ${(props) => props.theme.space[2]};
+  padding-bottom: ${(props) => props.theme.space[2]};
 `;
 
 // Create a <Title> react-native component that renders an Text component which is
@@ -45,6 +55,12 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         rating = 4,
         isClosedTemporarily,
     } = restaurant;
+
+    // ratingArray
+    const ratingArray = Array.from(
+      new Array(Math.floor(rating))
+    );
+    // console.log(ratingArray);
   
     return (
 
@@ -54,6 +70,11 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
             <Info>
               <Title> {name} </Title>
+              <Rating>
+                {ratingArray.map(() => (
+                  <SvgXml xml={star} width={20} height={20} />
+                ))}
+              </Rating>
               <Address>{address}</Address>
             </Info>
         </RestaurantCard>

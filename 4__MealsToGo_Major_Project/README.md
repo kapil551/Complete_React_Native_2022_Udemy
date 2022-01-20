@@ -81,4 +81,7 @@
     - expo install @expo-google-fonts/oswald
 
     - expo install @expo-google-fonts/lato
-    
+
+13. Using SVG:
+
+    - https://www.npmjs.com/package/react-native-svg
