@@ -71,3 +71,14 @@
     - https://styled-components.com/docs/advanced#theming
 
     - https://reactjs.org/docs/context.html
+
+12. Adding custom google fonts:
+
+    - https://github.com/expo/google-fonts
+
+    - expo install expo-font
+
+    - expo install @expo-google-fonts/oswald
+
+    - expo install @expo-google-fonts/lato
+    
