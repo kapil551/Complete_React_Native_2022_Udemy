@@ -6,6 +6,19 @@ import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurant
 // styled-components "Theme"
 import { ThemeProvider } from "styled-components/native";
 
+import { Text, SafeAreaView, StatusBar } from "react-native";
+import styled from "styled-components/native";
+
+// React Navigation -> Tab Navigation
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+// styled-components
+const SafeArea = styled(SafeAreaView)`
+  flex: 1;
+  ${ StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
+`;
+
 // custom google fonts --> oswald
 import {
   useFonts as useOswald,
@@ -20,6 +33,19 @@ import {
 
 // Importing the defined theme of our app
 import { theme } from "./src/infrastructure/theme";
+
+const Tab = createBottomTabNavigator();
+
+const Settings = () => (
+  <SafeArea>
+    <Text>Settings</Text>
+  </SafeArea>
+);
+const Map = () => (
+  <SafeArea>
+    <Text>Map</Text>
+  </SafeArea>
+);
 
 
 export default function App() {
@@ -42,7 +68,15 @@ export default function App() {
 
       {/* https://styled-components.com/docs/advanced#theming */}
       <ThemeProvider theme={theme}>
-        <RestaurantsScreen />
+        
+        <NavigationContainer>
+          <Tab.Navigator>
+            <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
+            <Tab.Screen name="Map" component={Map} />
+            <Tab.Screen name="Settings" component={Settings} />
+          </Tab.Navigator>
+        </NavigationContainer>
+          
       </ThemeProvider>
 
       <ExpoStatusBar style='auto'/>
