@@ -137,3 +137,7 @@
 15. Adding a Loader:
 
     - https://callstack.github.io/react-native-paper/activity-indicator.html
+
+16. Geocoding:
+
+    - 
