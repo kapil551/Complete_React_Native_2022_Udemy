@@ -26,8 +26,10 @@ const SearchContainer = styled.View`
 
 export const RestaurantsScreen = () => {
 
-    const restaurantContext = useContext(RestaurantsContext);
-    // console.log(restaurantContext);
+    const { restaurants, isLoading, error} = useContext(RestaurantsContext);
+    console.log(isLoading)
+    console.log(restaurants);
+    console.log(error);
 
     return (
 
@@ -40,10 +42,10 @@ export const RestaurantsScreen = () => {
             </SearchContainer>
 
             <FlatList
-              data={ restaurantContext.restaurants}
-              renderItem={() => (
+              data={ restaurants }
+              renderItem={( { restaurant }) => (
                 <>
-                  <RestaurantInfoCard />
+                  <RestaurantInfoCard  restaurant={restaurant} />
                   <Spacer variant="bottom.large"> </Spacer>
                 </>
               )}

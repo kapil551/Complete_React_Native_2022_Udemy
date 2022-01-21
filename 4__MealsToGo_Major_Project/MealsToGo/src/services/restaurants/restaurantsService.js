@@ -1,8 +1,7 @@
 // Fake an API Request to fetch the mock data 
-import { mocks } from "./mock/index";
+import { mocks, mockImages } from "./mock/index";
 
 import camelize from "camelize";
-
 
 export const restaurantsRequest = (location = "37.7749295,-122.4194155") => {
 
@@ -25,6 +24,10 @@ export const restaurantsDataTransform = (mockDataResults) => {
     
     // console.log(mockDataResults.results);
     const newResult = mockDataResults.results.map((restaurant) => {
+
+        restaurant.photos = restaurant.photos.map((photo) => {
+            return mockImages[Math.ceil(Math.random() * (mockImages.length - 1))];
+        });
 
         return {
             ...restaurant,
