@@ -111,3 +111,7 @@
     - ```Tab navigation```:
 
         - https://reactnavigation.org/docs/tab-based-navigation/
+
+        - ```Tab Icons```:
+
+            - https://reactnavigation.org/docs/tab-based-navigation/#customizing-the-appearance
