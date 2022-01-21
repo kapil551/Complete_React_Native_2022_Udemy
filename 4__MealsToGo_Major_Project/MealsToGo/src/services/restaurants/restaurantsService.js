@@ -1,6 +1,8 @@
 // Fake an API Request to fetch the mock data 
 import { mocks } from "./mock/index";
 
+import camelize from "camelize";
+
 
 export const restaurantsRequest = (location = "37.7749295,-122.4194155") => {
 
@@ -18,10 +20,28 @@ export const restaurantsRequest = (location = "37.7749295,-122.4194155") => {
 
 }
 
+// transform the dataFromAPI
+const restaurantsDataTransform = (mockDataResults) => {
+    
+    // console.log(mockDataResults.results);
+    const newResult = mockDataResults.results.map((restaurant) => {
+        
+        return {
+            ...restaurant,
+            isOpenNow: restaurant.opening_hours && restaurant.opening_hours.open_now,
+            isClosedTemporarily: restaurant.business_status === "CLOSED_TEMPORARILY", 
+        }
+
+    });
+
+    return camelize(newResult);
+};
+
 // This restaurantsRequest is a promise --> so it needs to the then() and catch()
 restaurantsRequest()
-    .then((dataFromAPI) => {
-        console.log(dataFromAPI);
+    .then(restaurantsDataTransform)
+    .then((transformedDataFromAPI) => {
+        console.log(transformedDataFromAPI);
     })
     .catch((err) => {
         console.log(err);   
