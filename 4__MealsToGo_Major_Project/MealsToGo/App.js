@@ -10,6 +10,7 @@ import { Text, SafeAreaView, StatusBar } from "react-native";
 import styled from "styled-components/native";
 
 import { RestaurantsContextProvider } from "./src/services/restaurants/restaurantsContext";
+import { LocationContextProvider } from "./src/services/location/locationContext";
 
 // React Navigation -> Tab Navigation
 import { NavigationContainer } from '@react-navigation/native';
@@ -73,44 +74,48 @@ export default function App() {
       {/* https://styled-components.com/docs/advanced#theming */}
       <ThemeProvider theme={theme}>
 
-        <RestaurantsContextProvider>
+        <LocationContextProvider>
 
-          <NavigationContainer>
-            <Tab.Navigator
-                screenOptions={({ route }) => ({
-                  tabBarIcon: ({ focused, color, size }) => {
-                    let iconName;
+          <RestaurantsContextProvider>
 
-                    if (route.name === "Restaurants") {
-                      iconName = focused 
-                        ? "md-restaurant"
-                        : "md-restaurant-outline";
-                    } else if (route.name === "Settings") {
+            <NavigationContainer>
+              <Tab.Navigator
+                  screenOptions={({ route }) => ({
+                    tabBarIcon: ({ focused, color, size }) => {
+                      let iconName;
 
-                      iconName = focused
-                        ? "md-settings"
-                        : "md-settings-outline";
-                    } else if (route.name === "Map") {
-                      iconName = focused
-                        ? "md-map"
-                        : "md-map-outline";
-                    }
+                      if (route.name === "Restaurants") {
+                        iconName = focused 
+                          ? "md-restaurant"
+                          : "md-restaurant-outline";
+                      } else if (route.name === "Settings") {
 
-                    // You can return any component that you like here!
-                    return <Ionicons name={iconName} size={size} color={color} />;
-                  },
-                  tabBarActiveTintColor: 'tomato',
-                  tabBarInactiveTintColor: 'gray',
-                })}
-              >
-              <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
-              <Tab.Screen name="Map" component={Map} />
-              <Tab.Screen name="Settings" component={Settings} />
-            </Tab.Navigator>
-          </NavigationContainer>
+                        iconName = focused
+                          ? "md-settings"
+                          : "md-settings-outline";
+                      } else if (route.name === "Map") {
+                        iconName = focused
+                          ? "md-map"
+                          : "md-map-outline";
+                      }
 
-        </RestaurantsContextProvider>
-        
+                      // You can return any component that you like here!
+                      return <Ionicons name={iconName} size={size} color={color} />;
+                    },
+                    tabBarActiveTintColor: 'tomato',
+                    tabBarInactiveTintColor: 'gray',
+                  })}
+                >
+                <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
+                <Tab.Screen name="Map" component={Map} />
+                <Tab.Screen name="Settings" component={Settings} />
+              </Tab.Navigator>
+            </NavigationContainer>
+
+          </RestaurantsContextProvider>
+          
+        </LocationContextProvider>
+
       </ThemeProvider>
 
       <ExpoStatusBar style='auto'/>
