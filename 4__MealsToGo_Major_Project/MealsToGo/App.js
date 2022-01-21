@@ -9,6 +9,9 @@ import { ThemeProvider } from "styled-components/native";
 import { Text, SafeAreaView, StatusBar } from "react-native";
 import styled from "styled-components/native";
 
+// import the mock data
+import { restaurantsRequest } from "./src/services/restaurants/restaurantsService";
+
 // React Navigation -> Tab Navigation
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
