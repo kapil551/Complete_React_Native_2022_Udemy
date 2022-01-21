@@ -74,25 +74,30 @@ export default function App() {
         <NavigationContainer>
           <Tab.Navigator
               screenOptions={({ route }) => ({
-                tabBarIcon: ({ color, size }) => {
+                tabBarIcon: ({ focused, color, size }) => {
                   let iconName;
 
                   if (route.name === "Restaurants") {
-                    iconName = "md-restaurant";
+                    iconName = focused 
+                      ? "md-restaurant"
+                      : "md-restaurant-outline";
                   } else if (route.name === "Settings") {
-                    iconName = "md-settings";
+
+                    iconName = focused
+                      ? "md-settings"
+                      : "md-settings-outline";
                   } else if (route.name === "Map") {
-                    iconName = "md-map";
+                    iconName = focused
+                      ? "md-map"
+                      : "md-map-outline";
                   }
 
                   // You can return any component that you like here!
                   return <Ionicons name={iconName} size={size} color={color} />;
                 },
+                tabBarActiveTintColor: 'tomato',
+                tabBarInactiveTintColor: 'gray',
               })}
-              tabBarOptions={{
-                activeTintColor: "tomato",
-                inactiveTintColor: "gray",
-              }}
             >
             <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
             <Tab.Screen name="Map" component={Map} />

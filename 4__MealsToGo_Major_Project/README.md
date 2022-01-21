@@ -115,3 +115,10 @@
         - ```Tab Icons```:
 
             - https://reactnavigation.org/docs/tab-based-navigation/#customizing-the-appearance
+
+            - ```@expo/vector-icons```:
+        
+                - https://docs.expo.dev/guides/icons/
+
+                - https://icons.expo.fyi/
+            
