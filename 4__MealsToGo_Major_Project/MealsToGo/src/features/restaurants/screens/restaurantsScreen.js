@@ -14,14 +14,12 @@ import { RestaurantsContext } from '../../../services/restaurants/restaurantsCon
 
 import { Spacer } from '../../../components/spacer/spacerComponent';
 
+import { Search } from '../components/searchComponent';
+
 // Migrating to styled-components
 const SafeArea = styled(SafeAreaView)`
   flex: 1;
   ${ StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
-`;
-
-const SearchContainer = styled.View`
-  padding: ${(props) => props.theme.space[3]};
 `;
 
 const Loading = styled(ActivityIndicator)`
@@ -50,11 +48,7 @@ export const RestaurantsScreen = () => {
               </LoadingContainer>
             )}
 
-            <SearchContainer>
-                <Searchbar
-                    placeholder="Search"
-                />
-            </SearchContainer>
+            <Search />
 
             <FlatList
               data={ restaurants }
