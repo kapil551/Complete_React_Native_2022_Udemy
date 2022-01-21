@@ -9,8 +9,7 @@ import { ThemeProvider } from "styled-components/native";
 import { Text, SafeAreaView, StatusBar } from "react-native";
 import styled from "styled-components/native";
 
-// import the mock data
-import { restaurantsRequest } from "./src/services/restaurants/restaurantsService";
+import { RestaurantsContextProvider } from "./src/services/restaurants/restaurantsContext";
 
 // React Navigation -> Tab Navigation
 import { NavigationContainer } from '@react-navigation/native';
@@ -73,41 +72,45 @@ export default function App() {
 
       {/* https://styled-components.com/docs/advanced#theming */}
       <ThemeProvider theme={theme}>
+
+        <RestaurantsContextProvider>
+
+          <NavigationContainer>
+            <Tab.Navigator
+                screenOptions={({ route }) => ({
+                  tabBarIcon: ({ focused, color, size }) => {
+                    let iconName;
+
+                    if (route.name === "Restaurants") {
+                      iconName = focused 
+                        ? "md-restaurant"
+                        : "md-restaurant-outline";
+                    } else if (route.name === "Settings") {
+
+                      iconName = focused
+                        ? "md-settings"
+                        : "md-settings-outline";
+                    } else if (route.name === "Map") {
+                      iconName = focused
+                        ? "md-map"
+                        : "md-map-outline";
+                    }
+
+                    // You can return any component that you like here!
+                    return <Ionicons name={iconName} size={size} color={color} />;
+                  },
+                  tabBarActiveTintColor: 'tomato',
+                  tabBarInactiveTintColor: 'gray',
+                })}
+              >
+              <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
+              <Tab.Screen name="Map" component={Map} />
+              <Tab.Screen name="Settings" component={Settings} />
+            </Tab.Navigator>
+          </NavigationContainer>
+
+        </RestaurantsContextProvider>
         
-        <NavigationContainer>
-          <Tab.Navigator
-              screenOptions={({ route }) => ({
-                tabBarIcon: ({ focused, color, size }) => {
-                  let iconName;
-
-                  if (route.name === "Restaurants") {
-                    iconName = focused 
-                      ? "md-restaurant"
-                      : "md-restaurant-outline";
-                  } else if (route.name === "Settings") {
-
-                    iconName = focused
-                      ? "md-settings"
-                      : "md-settings-outline";
-                  } else if (route.name === "Map") {
-                    iconName = focused
-                      ? "md-map"
-                      : "md-map-outline";
-                  }
-
-                  // You can return any component that you like here!
-                  return <Ionicons name={iconName} size={size} color={color} />;
-                },
-                tabBarActiveTintColor: 'tomato',
-                tabBarInactiveTintColor: 'gray',
-              })}
-            >
-            <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
-            <Tab.Screen name="Map" component={Map} />
-            <Tab.Screen name="Settings" component={Settings} />
-          </Tab.Navigator>
-        </NavigationContainer>
-          
       </ThemeProvider>
 
       <ExpoStatusBar style='auto'/>

@@ -4,11 +4,13 @@ import {
     FlatList,
 } from 'react-native';
   
-import React from 'react';
+import React, { useContext } from 'react';
 import { Searchbar } from 'react-native-paper';
 
 import { RestaurantInfoCard } from '../components/restaurantInfo';
 import styled from 'styled-components';
+
+import { RestaurantsContext } from '../../../services/restaurants/restaurantsContext';
 
 import { Spacer } from '../../../components/spacer/spacerComponent';
 
@@ -22,44 +24,35 @@ const SearchContainer = styled.View`
   padding: ${(props) => props.theme.space[3]};
 `;
 
-export const RestaurantsScreen = () => (
+export const RestaurantsScreen = () => {
 
-    <SafeArea>
+    const restaurantContext = useContext(RestaurantsContext);
+    // console.log(restaurantContext);
 
-        <SearchContainer>
-            <Searchbar
-                placeholder="Search"
+    return (
+
+        <SafeArea>
+
+            <SearchContainer>
+                <Searchbar
+                    placeholder="Search"
+                />
+            </SearchContainer>
+
+            <FlatList
+              data={ restaurantContext.restaurants}
+              renderItem={() => (
+                <>
+                  <RestaurantInfoCard />
+                  <Spacer variant="bottom.large"> </Spacer>
+                </>
+              )}
+              keyExtractor={(item) => item.name}
+              contentContainerStyle = { { padding: 16 }}
+
             />
-        </SearchContainer>
 
-        <FlatList
-          data={[
-            { name: 1 },
-            { name: 2 },
-            { name: 3 },
-            { name: 4 },
-            { name: 5 },
-            { name: 6 },
-            { name: 7 },
-            { name: 8 },
-            { name: 9 },
-            { name: 10 },
-            { name: 11 },
-            { name: 12 },
-            { name: 13 },
-            { name: 14 },
-          ]}
-          renderItem={() => (
-            <>
-              <RestaurantInfoCard />
-              <Spacer variant="bottom.large"> </Spacer>
-            </>
-          )}
-          keyExtractor={(item) => item.name}
-          contentContainerStyle = { { padding: 16 }}
-
-        />
-
-  </SafeArea>
-);
+      </SafeArea>
+    );
+};
   
