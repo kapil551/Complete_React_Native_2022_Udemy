@@ -121,4 +121,15 @@
                 - https://docs.expo.dev/guides/icons/
 
                 - https://icons.expo.fyi/
-            
+
+15. Adding Mock Data:
+
+    - mock data is present inside ```src/services/restaurants/mock``` folder.
+
+    - Consuming the mock data in any component using ```Context API```: 
+    
+        - https://reactjs.org/docs/context.html
+    
+    - What are we actually doing (go to ``src/services`` folder):
+
+![](./consuming_mock_data.PNG)
