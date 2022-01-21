@@ -133,3 +133,7 @@
     - What are we actually doing (go to ``src/services`` folder):
 
 ![](./consuming_mock_data.PNG)
+
+15. Adding a Loader:
+
+    - https://callstack.github.io/react-native-paper/activity-indicator.html

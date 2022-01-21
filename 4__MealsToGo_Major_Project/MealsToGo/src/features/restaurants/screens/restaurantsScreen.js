@@ -5,7 +5,7 @@ import {
 } from 'react-native';
   
 import React, { useContext } from 'react';
-import { Searchbar } from 'react-native-paper';
+import { Searchbar, ActivityIndicator, Colors } from 'react-native-paper';
 
 import { RestaurantInfoCard } from '../components/restaurantInfo';
 import styled from 'styled-components';
@@ -24,6 +24,15 @@ const SearchContainer = styled.View`
   padding: ${(props) => props.theme.space[3]};
 `;
 
+const Loading = styled(ActivityIndicator)`
+  margin-left: -25px;
+`;
+const LoadingContainer = styled.View`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+`;
+
 export const RestaurantsScreen = () => {
 
     const { restaurants, isLoading, error} = useContext(RestaurantsContext);
@@ -34,6 +43,12 @@ export const RestaurantsScreen = () => {
     return (
 
         <SafeArea>
+
+            {isLoading && (
+              <LoadingContainer>
+                <Loading size={50} animating={true} color={Colors.blue300} />
+              </LoadingContainer>
+            )}
 
             <SearchContainer>
                 <Searchbar
