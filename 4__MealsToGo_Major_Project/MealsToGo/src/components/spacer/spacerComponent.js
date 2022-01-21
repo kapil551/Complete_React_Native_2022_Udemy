@@ -25,6 +25,30 @@ const LeftMedium = styled.View`
 const LeftLarge = styled.View`
   margin-left: ${(props) => props.theme.space[3]};
 `;
+
+const BottomSmall = styled.View`
+  margin-bottom: ${(props) => props.theme.space[1]};
+`;
+
+const BottomMedium = styled.View`
+  margin-bottom: ${(props) => props.theme.space[2]};
+`;
+
+const BottomLarge = styled.View`
+  margin-bottom: ${(props) => props.theme.space[3]};
+`;
+
+const RightSmall = styled.View`
+  margin-right ${(props) => props.theme.space[1]};
+`;
+
+const RightMedium = styled.View`
+  margin-right ${(props) => props.theme.space[2]};
+`;
+
+const RightLarge = styled.View`
+  margin-right ${(props) => props.theme.space[3]};
+`;
             // using destructuring to access the props.variant
 export const Spacer = ({ variant }) => {
 
@@ -43,7 +67,25 @@ export const Spacer = ({ variant }) => {
   if (variant === "left.large") {
     return <LeftLarge />;
   }
+  if (variant === "bottom.small") {
+    return <BottomSmall />;
+  }
+  if (variant === "bottom.medium") {
+    return <BottomMedium />;
+  }
+  if (variant === "bottom.large") {
+    return <BottomLarge />;
+  }
+  if (variant === "right.small") {
+    return <RightSmall />;
+  }
+  if (variant === "right.medium") {
+    return <RightMedium />;
+  }
+  if (variant === "right.large") {
+    return <RightLarge />;
+  }
 
   return <TopSmall />;
-  
+
 };

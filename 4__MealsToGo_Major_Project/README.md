@@ -85,3 +85,11 @@
 13. Using SVG:
 
     - https://www.npmjs.com/package/react-native-svg
+
+14. Working with lists in react-native:
+
+    - https://reactjs.org/docs/lists-and-keys.html
+
+    - https://reactnative.dev/docs/flatlist
+
+    - https://reactnative.dev/docs/scrollview
